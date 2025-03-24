@@ -1,3 +1,14 @@
+/// <reference types="vite/client" />
+
+interface ImportMetaEnv {
+  readonly VITE_API_URL: string;
+  // Add other env variables here
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
+
 import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';

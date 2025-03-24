@@ -161,7 +161,7 @@ const AppContent: React.FC = () => {
                 initial={{ x: "100%" }}
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
-                transition={{ duration: 0.3 }}
+                transition={{ type: "spring", duration: 0.3 }}
               >
                 <div className="flex items-center justify-between">
                   <Link to="/" className="-m-1.5 p-1.5">

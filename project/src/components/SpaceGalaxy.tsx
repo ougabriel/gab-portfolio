@@ -1,11 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-interface SpaceGalaxyProps {
-  show: boolean;
-}
-
-const SpaceGalaxy: React.FC<SpaceGalaxyProps> = ({ show }) => {
+const SpaceGalaxy: React.FC = () => {
   // Generate random stars
   const stars = Array.from({ length: 150 }, (_, i) => ({
     id: i,
