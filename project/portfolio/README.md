@@ -1,54 +1,148 @@
-# React + TypeScript + Vite
+# Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern portfolio website built with React, TypeScript, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node.js (v18.16.0 or higher)
+- npm (v9.8.1 or higher)
+- Git
 
-## Expanding the ESLint configuration
+## Local Development
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. Clone the repository:
+```bash
+git clone <your-repository-url>
+cd project/portfolio
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Create a `.env` file in the project root:
+```env
+VITE_API_KEY=vite_portfolio_0d45845f117dfff1b260f3cf8230e5cfea60637d386bc8d3c6ce61a92545736e
+```
+
+4. Start the development server:
+```bash
+npm run dev
+```
+
+5. Open your browser and navigate to `http://localhost:5173`
+
+## Deployment to Netlify
+
+### Method 1: Deploy via Netlify UI
+
+1. Push your code to GitHub/GitLab/Bitbucket
+
+2. Go to [Netlify Dashboard](https://app.netlify.com)
+
+3. Click "Add new site" > "Import an existing project"
+
+4. Connect to your Git provider and select the repository
+
+5. Configure the build settings:
+   - Base directory: `project/portfolio`
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+
+6. Add environment variables:
+   - Go to Site settings > Environment variables
+   - Add the following variable:
+     ```
+     Key: VITE_API_KEY
+     Value: vite_portfolio_0d45845f117dfff1b260f3cf8230e5cfea60637d386bc8d3c6ce61a92545736e
+     ```
+
+7. Click "Deploy site"
+
+### Method 2: Deploy via Netlify CLI
+
+1. Install Netlify CLI:
+```bash
+npm install -g netlify-cli
+```
+
+2. Login to Netlify:
+```bash
+netlify login
+```
+
+3. Initialize Netlify in your project:
+```bash
+netlify init
+```
+
+4. Deploy:
+```bash
+netlify deploy --prod
+```
+
+## Project Structure
+
+```
+project/portfolio/
+├── src/
+│   ├── components/     # React components
+│   ├── assets/        # Static assets
+│   ├── App.tsx        # Main App component
+│   └── main.tsx       # Entry point
+├── public/            # Public assets
+├── dist/             # Build output
+├── .env              # Environment variables
+├── netlify.toml      # Netlify configuration
+└── package.json      # Project dependencies
+```
+
+## Environment Variables
+
+Required environment variables:
+- `VITE_API_KEY`: API key for authentication
+
+## Build Commands
+
+- Development: `npm run dev`
+- Build: `npm run build`
+- Preview: `npm run preview`
+
+## Troubleshooting
+
+### Local Development Issues
+
+1. If you see TypeScript errors:
+   ```bash
+   npm run build
+   ```
+
+2. If dependencies are missing:
+   ```bash
+   npm install
+   ```
+
+### Netlify Deployment Issues
+
+1. If the build fails:
+   - Check the build logs in Netlify dashboard
+   - Verify environment variables are set correctly
+   - Ensure the base directory is set to `project/portfolio`
+
+2. If the site is blank:
+   - Check the browser console for errors
+   - Verify the publish directory is set to `dist`
+   - Check if all environment variables are set correctly
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
