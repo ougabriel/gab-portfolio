@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { motion, AnimatePresence } from 'framer-motion'
-import Home from './components/Home'
 import About from './components/About'
 import Project from './components/Project'
 import Contact from './components/Contact'
@@ -45,7 +44,7 @@ const AppContent: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black">
-      {isHomePage && <SpaceGalaxy show={true} />}
+      {isHomePage && <SpaceGalaxy />}
       <div className="relative z-10">
         {/* Navigation */}
         <motion.header 
@@ -146,23 +145,12 @@ const AppContent: React.FC = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <Dialog 
-              as={motion.div} 
               className="lg:hidden" 
               open={isMobileMenuOpen} 
               onClose={setIsMobileMenuOpen}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
             >
               <div className="fixed inset-0 z-50" />
-              <Dialog.Panel 
-                as={motion.div}
-                className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10"
-                initial={{ x: "100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: "100%" }}
-                transition={{ type: "spring", duration: 0.3 }}
-              >
+              <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
                 <div className="flex items-center justify-between">
                   <Link to="/" className="-m-1.5 p-1.5">
                     <span className="text-2xl font-bold text-white">DevOps Portfolio</span>
