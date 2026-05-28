@@ -15,7 +15,7 @@ const navigation = [
   { name: 'Videos', href: '/videos' },
   { name: 'Projects', href: '/projects' },
   { name: 'Certifications', href: '/certifications' },
-  { name: 'About', href: '/about' },
+  { name: 'About/CV', href: '/about' },
   { name: 'Contact', href: '/contact' },
 ]
 
