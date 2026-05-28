@@ -96,11 +96,11 @@ const About: React.FC = () => {
       <section className="hairline-b">
         <div className="page" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
           <div className="flex items-baseline justify-between mb-6">
-            <span className="folio">Vol. I / About</span>
+            <span className="folio">Vol. I / About + CV</span>
             <span className="folio">LONDON, SE6</span>
           </div>
           <h1 className="display">
-            About<span className="accent">.</span>
+            About<span className="accent">/</span>CV
           </h1>
           <p className="prose-mono" style={{ marginTop: '1.5rem' }}>
             Senior DevOps engineer with hands-on AI/MLOps experience. At
