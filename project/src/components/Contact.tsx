@@ -1,160 +1,185 @@
-import { motion } from 'framer-motion';
+import React, { useState } from 'react'
 
-const Contact = () => {
+const channels: { folio: string; label: string; value: string; href: string }[] = [
+  {
+    folio: 'No. 01',
+    label: 'Email — preferred',
+    value: 'ougabriel@gmail.com',
+    href: 'mailto:ougabriel@gmail.com',
+  },
+  {
+    folio: 'No. 02',
+    label: 'LinkedIn',
+    value: '/in/gabrielokom',
+    href: 'https://www.linkedin.com/in/gabrielokom/',
+  },
+  {
+    folio: 'No. 03',
+    label: 'GitHub',
+    value: '@ougabriel',
+    href: 'https://github.com/ougabriel',
+  },
+  {
+    folio: 'No. 04',
+    label: 'Medium',
+    value: '@ougabriel',
+    href: 'https://ougabriel.medium.com/',
+  },
+  {
+    folio: 'No. 05',
+    label: 'YouTube',
+    value: '@GabrielOkom',
+    href: 'https://www.youtube.com/@GabrielOkom',
+  },
+  {
+    folio: 'No. 06',
+    label: 'Telephone',
+    value: '+44 7555 120605',
+    href: 'tel:+447555120605',
+  },
+]
+
+const Contact: React.FC = () => {
+  const [name, setName] = useState('')
+  const [from, setFrom] = useState('')
+  const [body, setBody] = useState('')
+
+  const mailto = () => {
+    const subject = encodeURIComponent(`Inbound from ${name || 'Field Log'}`)
+    const lines = [
+      `From: ${name || '—'} <${from || '—'}>`,
+      '',
+      body || '',
+    ]
+    const b = encodeURIComponent(lines.join('\n'))
+    window.location.href = `mailto:ougabriel@gmail.com?subject=${subject}&body=${b}`
+  }
+
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="container mx-auto px-4 py-12"
-    >
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Let's Connect</h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
-            Schedule a meeting to discuss your DevOps needs
+    <div>
+      <section className="hairline-b">
+        <div className="page" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
+          <div className="flex items-baseline justify-between mb-6">
+            <span className="folio">Vol. I / Contact</span>
+            <span className="folio">REPLIES WITHIN 24H</span>
+          </div>
+          <h1 className="display">
+            Get in touch<span className="accent">.</span>
+          </h1>
+          <p className="prose-mono" style={{ marginTop: '1.5rem' }}>
+            For roles, consulting, or a question about a piece in the log —
+            email is the cleanest path. The form below opens your mail client
+            with the message pre-filled; no third-party form processor sits in
+            the middle.
           </p>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Calendar Illustration Section */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="relative"
-          >
-            <div className="relative w-full max-w-md mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 rounded-2xl blur-2xl opacity-30 animate-pulse"></div>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white dark:bg-gray-800 p-8">
-                <div className="text-center">
-                  <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
-                    <svg
-                      className="w-12 h-12 text-blue-600 dark:text-blue-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
-                  </div>
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">30-Minute Consultation</h2>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Quick and focused discussion about your DevOps needs
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Calendly Booking Section */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="bg-gradient-to-br from-blue-600 via-blue-700 to-purple-800 rounded-2xl shadow-2xl p-8"
-          >
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-white mb-4">Schedule a Consultation</h2>
-              <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
-                Book a 30-minute consultation to discuss your project requirements, explore solutions, and learn how I can help transform your DevOps infrastructure.
-              </p>
-              <motion.a
-                href="https://calendly.com/ougabriel/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-8 py-4 bg-white text-blue-600 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Book a 30-Min Meeting
-                <svg
-                  className="w-6 h-6 ml-3"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-              </motion.a>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Contact Information */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="mt-12 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8"
-        >
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Get in Touch</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0">
-                <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
-                  <svg
-                    className="w-6 h-6 text-blue-600 dark:text-blue-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-lg font-medium text-gray-900 dark:text-white">Email</h3>
-                <p className="text-gray-600 dark:text-gray-300">ougabriel@gmail.com</p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0">
-                <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
-                  <svg
-                    className="w-6 h-6 text-blue-600 dark:text-blue-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-lg font-medium text-gray-900 dark:text-white">Location</h3>
-                <p className="text-gray-600 dark:text-gray-300">London, SE6 3LE ENG</p>
-              </div>
-            </div>
+      <section className="hairline-b">
+        <div className="page" style={{ paddingTop: '2.5rem', paddingBottom: '3rem' }}>
+          <div className="section-masthead">
+            <h2>Channels</h2>
+            <span className="rule-fill" />
+            <span className="meta tnum">{channels.length.toString().padStart(2, '0')}</span>
           </div>
-        </motion.div>
-      </div>
-    </motion.div>
-  );
-};
 
-export default Contact; 
+          {channels.map((c) => (
+            <a
+              key={c.folio}
+              href={c.href}
+              target={c.href.startsWith('http') ? '_blank' : undefined}
+              rel="noopener noreferrer"
+              className="dispatch group"
+            >
+              <span className="folio">{c.folio}</span>
+              <div>
+                <div className="meta" style={{ marginBottom: '0.4rem' }}>{c.label}</div>
+                <div
+                  className="group-hover:signal transition-colors"
+                  style={{ fontSize: '1.05rem', fontWeight: 500 }}
+                >
+                  {c.value}
+                </div>
+              </div>
+              <span className="meta dispatch-meta-right">OPEN ↗</span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <div className="page" style={{ paddingTop: '2.5rem', paddingBottom: '4.5rem' }}>
+          <div className="section-masthead">
+            <h2>Compose</h2>
+            <span className="rule-fill" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <label className="block p-5" style={{ borderTop: '1px solid var(--rule)' }}>
+              <div className="meta" style={{ marginBottom: '0.6rem' }}>Name</div>
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Your name"
+                className="w-full bg-transparent outline-none"
+                style={{
+                  border: 0,
+                  borderBottom: '1px solid var(--rule)',
+                  padding: '0.4rem 0',
+                  color: 'var(--bone)',
+                  fontFamily: 'inherit',
+                  fontSize: '0.95rem',
+                }}
+              />
+            </label>
+            <label className="block p-5" style={{ borderTop: '1px solid var(--rule)', borderLeft: '1px solid var(--rule)' }}>
+              <div className="meta" style={{ marginBottom: '0.6rem' }}>Reply-to</div>
+              <input
+                value={from}
+                onChange={(e) => setFrom(e.target.value)}
+                placeholder="you@domain.com"
+                type="email"
+                className="w-full bg-transparent outline-none"
+                style={{
+                  border: 0,
+                  borderBottom: '1px solid var(--rule)',
+                  padding: '0.4rem 0',
+                  color: 'var(--bone)',
+                  fontFamily: 'inherit',
+                  fontSize: '0.95rem',
+                }}
+              />
+            </label>
+            <label className="block p-5 md:col-span-2" style={{ borderTop: '1px solid var(--rule)' }}>
+              <div className="meta" style={{ marginBottom: '0.6rem' }}>Message</div>
+              <textarea
+                value={body}
+                onChange={(e) => setBody(e.target.value)}
+                rows={7}
+                placeholder="Notes, brief, or the question."
+                className="w-full bg-transparent outline-none resize-y"
+                style={{
+                  border: 0,
+                  borderBottom: '1px solid var(--rule)',
+                  padding: '0.4rem 0',
+                  color: 'var(--bone)',
+                  fontFamily: 'inherit',
+                  fontSize: '0.95rem',
+                  lineHeight: 1.6,
+                }}
+              />
+            </label>
+          </div>
+
+          <div className="hairline" style={{ marginTop: '1.5rem', paddingTop: '1.5rem' }}>
+            <button onClick={mailto} className="field-btn field-btn-solid">
+              SEND VIA MAIL CLIENT ↗
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+export default Contact

@@ -2,104 +2,243 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base styles */
+:root {
+  --ink: #0B0C0A;
+  --ink-800: #101210;
+  --ink-700: #151714;
+  --rule: #1F221C;
+  --bone: #E8E6DD;
+  --dim: #7A7F73;
+  --signal: #C6FF4A;
+  --signal-dim: #8FB934;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background: var(--ink);
+  color: var(--bone);
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-feature-settings: "ss01", "ss02", "tnum";
+  font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #0a0118;
-  color: white;
+  text-rendering: geometricPrecision;
+}
+
+body {
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
-/* Background Animations */
-@keyframes gradient {
-  0% {
-    background-position: 0% 0%;
+::selection {
+  background: var(--signal);
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hairline rule used as the only horizontal separator */
+.hairline {
+  border-top: 1px solid var(--rule);
+}
+.hairline-b {
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Folio chip — the No. NN / Vol. I marker */
+.folio {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.meta {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.signal {
+  color: var(--signal);
+}
+
+.dim {
+  color: var(--dim);
+}
+
+/* Signal-underlined link — committed underline, never dotted */
+.link-signal {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4ch;
+  color: var(--bone);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1px;
+  transition: color 120ms linear, border-color 120ms linear;
+}
+.link-signal:hover {
+  color: var(--signal);
+  border-bottom-color: var(--signal);
+}
+
+/* Dispatch row — the field-log row pattern */
+.dispatch {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr auto;
+  gap: 1.5rem;
+  padding: 1.75rem 0;
+  border-top: 1px solid var(--rule);
+  align-items: baseline;
+}
+.dispatch:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+@media (max-width: 720px) {
+  .dispatch {
+    grid-template-columns: 4rem 1fr;
+    gap: 1rem;
   }
-  50% {
-    background-position: 100% 100%;
-  }
-  100% {
-    background-position: 0% 0%;
+  .dispatch > .dispatch-meta-right {
+    grid-column: 1 / -1;
+    padding-top: 0.25rem;
   }
 }
 
-@keyframes float {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(20px, -20px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-  100% {
-    transform: translate(0, 0) scale(1);
+/* Section masthead — name of the section in widely-tracked caps */
+.section-masthead {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+.section-masthead h2 {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0;
+  font-weight: 500;
+}
+.section-masthead .rule-fill {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* Field button — square, flat, hairline */
+.field-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6ch;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--rule);
+  color: var(--bone);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 120ms linear, color 120ms linear, background 120ms linear;
+}
+.field-btn:hover {
+  border-color: var(--signal);
+  color: var(--signal);
+}
+.field-btn-solid {
+  background: var(--signal);
+  border-color: var(--signal);
+  color: var(--ink);
+}
+.field-btn-solid:hover {
+  background: transparent;
+  color: var(--signal);
+}
+
+/* Topic chip — uppercase code-tag pattern */
+.topic-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5ch;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--rule);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.topic-chip .diamond {
+  color: var(--signal);
+}
+
+/* Page container */
+.page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.75rem;
+}
+@media (min-width: 900px) {
+  .page {
+    padding: 0 3rem;
   }
 }
 
-@keyframes glow {
-  0%, 100% {
-    opacity: 0.5;
-    filter: blur(100px) brightness(1);
-  }
-  50% {
-    opacity: 0.8;
-    filter: blur(80px) brightness(1.2);
-  }
+/* Display headline — kept inside Industrial register: mono, heavy */
+.display {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  font-size: clamp(2.6rem, 6.4vw, 5.6rem);
+  color: var(--bone);
+}
+.display .accent {
+  color: var(--signal);
 }
 
-.animate-gradient {
-  background: linear-gradient(
-    -45deg,
-    rgba(59, 130, 246, 0.5),
-    rgba(147, 51, 234, 0.5),
-    rgba(236, 72, 153, 0.5),
-    rgba(79, 70, 229, 0.5)
-  );
-  background-size: 300% 300%;
-  animation: gradient 15s ease infinite;
+/* Subtle blinking caret for the masthead */
+@keyframes caret {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.caret::after {
+  content: "▮";
+  margin-left: 0.25ch;
+  color: var(--signal);
+  animation: caret 1.05s steps(1) infinite;
 }
 
-.animate-float {
-  animation: float 20s ease-in-out infinite;
+/* Tabular numerics utility */
+.tnum {
+  font-variant-numeric: tabular-nums;
 }
 
-.animate-glow {
-  animation: glow 8s ease-in-out infinite;
+/* Prose container for narrative copy */
+.prose-mono {
+  max-width: 64ch;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--bone);
 }
-
-.glass-effect {
-  backdrop-filter: blur(16px);
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+.prose-mono p + p {
+  margin-top: 1.2rem;
 }
-
-:root {
-  --primary: #3b82f6;
-  --primary-dark: #2563eb;
-  --primary-light: #60a5fa;
+.prose-mono em {
+  color: var(--signal);
+  font-style: normal;
 }
-
-@layer components {
-  .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-  .btn {
-    @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
-  }
-  .btn-primary {
-    @apply bg-primary text-white hover:bg-primary-dark;
-  }
-  .btn-secondary {
-    @apply bg-gray-700 text-white hover:bg-gray-600;
-  }
-} 

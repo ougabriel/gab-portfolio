@@ -1,29 +1,21 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom'
-import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { motion, AnimatePresence } from 'framer-motion'
+import { BrowserRouter as Router, Routes, Route, NavLink, Link, useLocation } from 'react-router-dom'
+import Home from './components/Home'
 import About from './components/About'
-import Project from './components/Project'
 import Contact from './components/Contact'
-import HireMe from './components/HireMe'
-import Tools from './components/Tools'
+import Articles from './components/Articles'
+import Videos from './components/Videos'
+import Project from './components/Project'
 import Certifications from './components/Certifications'
-import ThemeToggle from './components/ThemeToggle'
-import Admin from './components/Admin'
-import SpaceGalaxy from './components/SpaceGalaxy'
-import ProfileInfo from './components/ProfileInfo'
 import Footer from './components/Footer'
-import { authService } from './services/api'
-import ProtectedRoute from './components/ProtectedRoute'
 
 const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Project', href: '/project' },
-  { name: 'Tools', href: '/tools' },
+  { name: 'Dispatch', href: '/' },
+  { name: 'Articles', href: '/articles' },
+  { name: 'Videos', href: '/videos' },
+  { name: 'Projects', href: '/projects' },
   { name: 'Certifications', href: '/certifications' },
-  { name: 'Hire Me', href: '/hire-me' },
+  { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' },
 ]
 
@@ -36,306 +28,118 @@ const handleDownloadCV = () => {
   document.body.removeChild(link)
 }
 
-const AppContent: React.FC = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+const Header: React.FC = () => {
+  const [open, setOpen] = useState(false)
   const location = useLocation()
-  const isHomePage = location.pathname === '/'
-  const user = authService.getCurrentUser()
 
   return (
-    <div className="min-h-screen bg-black">
-      {isHomePage && <SpaceGalaxy />}
-      <div className="relative z-10">
-        {/* Navigation */}
-        <motion.header 
-          className="absolute inset-x-0 top-0 z-50"
-          initial={{ y: -100 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-            <div className="flex lg:flex-1">
-              <Link to="/" className="-m-1.5 p-1.5">
-                <motion.span 
-                  className="text-2xl font-bold text-white"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  DevOps Portfolio
-                </motion.span>
-              </Link>
-            </div>
-            <div className="hidden lg:flex lg:gap-x-12">
-              {navigation.map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Link
-                    to={item.href}
-                    className={`text-sm font-semibold leading-6 ${
-                      location.pathname === item.href
-                        ? "text-primary"
-                        : "text-gray-300 hover:text-white"
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-            <div className="flex lg:hidden">
-              <motion.button
-                type="button"
-                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
-                onClick={() => setIsMobileMenuOpen(true)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <span className="sr-only">Open main menu</span>
-                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-              </motion.button>
-            </div>
-            <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-x-4">
-              <ThemeToggle />
-              {user?.role === 'admin' && (
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
-                >
-                  <Link 
-                    to="/admin" 
-                    className="text-sm font-semibold text-white hover:text-primary-light"
-                  >
-                    Admin
-                  </Link>
-                </motion.div>
-              )}
-              <motion.button
-                onClick={handleDownloadCV}
-                className="bg-primary hover:bg-primary-dark text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 inline-flex items-center"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <svg
-                  className="w-4 h-4 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                  />
-                </svg>
-                Download CV
-              </motion.button>
-            </div>
-          </nav>
-        </motion.header>
+    <header className="hairline-b">
+      <div className="page flex items-center justify-between" style={{ height: 68 }}>
+        <Link to="/" className="flex items-baseline gap-2">
+          <span className="signal" style={{ fontSize: 18, lineHeight: 1 }}>◆</span>
+          <span className="font-mono" style={{ fontSize: 14, letterSpacing: '0.04em', fontWeight: 600 }}>
+            gabrielokom<span className="signal">/</span>
+          </span>
+        </Link>
 
-        {/* Mobile menu */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <Dialog 
-              className="lg:hidden" 
-              open={isMobileMenuOpen} 
-              onClose={setIsMobileMenuOpen}
+        <nav className="hidden md:flex items-center gap-7">
+          {navigation.map((item) => (
+            <NavLink
+              key={item.name}
+              to={item.href}
+              end={item.href === '/'}
+              className={({ isActive }) =>
+                `text-[12px] tracking-[0.14em] uppercase ${
+                  isActive ? 'signal' : 'text-bone hover:signal'
+                } transition-colors`
+              }
             >
-              <div className="fixed inset-0 z-50" />
-              <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
-                <div className="flex items-center justify-between">
-                  <Link to="/" className="-m-1.5 p-1.5">
-                    <span className="text-2xl font-bold text-white">DevOps Portfolio</span>
-                  </Link>
-                  <button
-                    type="button"
-                    className="-m-2.5 rounded-md p-2.5 text-white"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <span className="sr-only">Close menu</span>
-                    <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
-                </div>
-                <div className="mt-6 flow-root">
-                  <div className="-my-6 divide-y divide-gray-500/10">
-                    <div className="space-y-2 py-6">
-                      {navigation.map((item, index) => (
-                        <motion.div
-                          key={item.name}
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.3, delay: index * 0.1 }}
-                          whileHover={{ x: 5 }}
-                        >
-                          <Link
-                            to={item.href}
-                            className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {item.name}
-                          </Link>
-                        </motion.div>
-                      ))}
-                    </div>
-                    <div className="py-6">
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="text-gray-300">Theme</span>
-                        <ThemeToggle />
-                      </div>
-                      {user?.role === 'admin' && (
-                        <Link
-                          to="/admin"
-                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          Admin
-                        </Link>
-                      )}
-                      <motion.button
-                        onClick={handleDownloadCV}
-                        className="bg-primary hover:bg-primary-dark text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 inline-flex items-center"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <svg
-                          className="w-4 h-4 mr-2"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                          />
-                        </svg>
-                        Download CV
-                      </motion.button>
-                    </div>
-                  </div>
-                </div>
-              </Dialog.Panel>
-            </Dialog>
-          )}
-        </AnimatePresence>
+              {item.name}
+            </NavLink>
+          ))}
+        </nav>
 
-        {/* Main Content */}
-        <main className="relative pt-24">
-          <AnimatePresence mode="wait">
-            <Routes location={location} key={location.pathname}>
-              <Route path="/" element={
-                <motion.div 
-                  className="relative isolate"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-                    <div className="mx-auto max-w-2xl text-center">
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="mb-8"
-                      >
-                        <ProfileInfo />
-                      </motion.div>
-                      <motion.h1
-                        className="text-4xl font-bold tracking-tight text-white sm:text-6xl"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                      >
-                        DevOps Engineer & Cloud Architect
-                      </motion.h1>
-                      <motion.p
-                        className="mt-6 text-lg leading-8 text-gray-200"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                      >
-                        Transforming infrastructure and operations through automation and cloud-native solutions.
-                      </motion.p>
-                      <motion.div 
-                        className="mt-10 flex items-center justify-center gap-x-6"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.6 }}
-                      >
-                        <motion.a 
-                          href="/hire-me" 
-                          className="btn btn-primary relative overflow-hidden group"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <span className="relative z-10">Hire Me</span>
-                          <motion.div
-                            className="absolute inset-0 bg-primary-light"
-                            initial={{ x: '-100%' }}
-                            whileHover={{ x: 0 }}
-                            transition={{ duration: 0.3 }}
-                          />
-                        </motion.a>
-                        <motion.a 
-                          href="/project" 
-                          className="btn btn-secondary relative overflow-hidden group"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <span className="relative z-10">Read Project</span>
-                          <motion.div
-                            className="absolute inset-0 bg-gray-700"
-                            initial={{ x: '-100%' }}
-                            whileHover={{ x: 0 }}
-                            transition={{ duration: 0.3 }}
-                          />
-                        </motion.a>
-                      </motion.div>
-                    </div>
-                  </div>
-                </motion.div>
-              } />
-              <Route
-                path="/admin"
-                element={
-                  <ProtectedRoute requireAdmin>
-                    <Admin />
-                  </ProtectedRoute>
-                }
-              />
-              <Route path="/about" element={<About />} />
-              <Route path="/project" element={<Project />} />
-              <Route path="/tools" element={<Tools />} />
-              <Route path="/certifications" element={<Certifications />} />
-              <Route path="/hire-me" element={<HireMe />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </AnimatePresence>
-        </main>
+        <div className="hidden md:flex items-center gap-3">
+          <button onClick={handleDownloadCV} className="field-btn">
+            CV<span className="signal">.PDF</span>
+          </button>
+        </div>
 
-        {/* Footer */}
-        <Footer />
+        <button
+          className="md:hidden field-btn"
+          aria-label="Open menu"
+          onClick={() => setOpen((v) => !v)}
+        >
+          {open ? 'Close' : 'Menu'}
+        </button>
       </div>
-    </div>
+
+      {open && (
+        <div className="md:hidden hairline-b">
+          <div className="page py-4 flex flex-col gap-3">
+            {navigation.map((item) => (
+              <NavLink
+                key={item.name}
+                to={item.href}
+                end={item.href === '/'}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) =>
+                  `text-[13px] tracking-[0.14em] uppercase ${
+                    isActive ? 'signal' : 'text-bone'
+                  }`
+                }
+              >
+                {item.name}
+              </NavLink>
+            ))}
+            <button onClick={handleDownloadCV} className="field-btn self-start mt-1">
+              CV<span className="signal">.PDF</span>
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Sub-rail: status strip. Real info only — current role + location. */}
+      <div className="hairline-b">
+        <div className="page flex items-center justify-between" style={{ height: 32 }}>
+          <span className="meta">
+            KPMG <span className="signal">/</span> MICROSOFT BUSINESS SOLUTIONS
+          </span>
+          <span className="meta hidden sm:inline">
+            LONDON SE6 <span className="signal">/</span> UTC+0
+          </span>
+          <span className="meta hidden md:inline">
+            FIELD LOG <span className="signal">/</span> VOL. I
+          </span>
+        </div>
+      </div>
+
+      {/* suppress unused-loc warning */}
+      <span className="sr-only">{location.pathname}</span>
+    </header>
   )
 }
 
 const App: React.FC = () => {
   return (
     <Router>
-      <AppContent />
+      <div className="min-h-screen" style={{ background: '#0B0C0A' }}>
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/articles" element={<Articles />} />
+            <Route path="/videos" element={<Videos />} />
+            <Route path="/projects" element={<Project />} />
+            <Route path="/certifications" element={<Certifications />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   )
 }
 
-export default App 
+export default App
