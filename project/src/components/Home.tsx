@@ -1,5 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+
+const stampNow = () => {
+  const d = new Date()
+  const date = d.toLocaleDateString('en-CA')
+  const time = d.toLocaleTimeString('en-GB', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  })
+  const tzParts = Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d)
+  const tz = tzParts.find((p) => p.type === 'timeZoneName')?.value ?? ''
+  return { date, time, tz }
+}
 
 type Dispatch = {
   folio: string
@@ -84,14 +97,32 @@ const certifications = [
 ]
 
 const Home: React.FC = () => {
+  const [stamp, setStamp] = useState(stampNow)
+  useEffect(() => {
+    const t = setInterval(() => setStamp(stampNow()), 15 * 1000)
+    return () => clearInterval(t)
+  }, [])
+
   return (
     <div>
       {/* ================== MASTHEAD ================== */}
       <section className="hairline-b">
         <div className="page" style={{ paddingTop: '3.5rem', paddingBottom: '3.5rem' }}>
-          <div className="flex items-baseline justify-between mb-10">
+          <div
+            className="grid grid-cols-1 md:grid-cols-3 items-baseline gap-y-2 mb-10"
+            style={{ columnGap: '1rem' }}
+          >
             <span className="folio">No. 01 / Vol. I / Field Log</span>
-            <span className="folio hidden md:inline">{new Date().toISOString().slice(0, 10)}</span>
+            <span className="folio tnum md:text-center">
+              {stamp.date} <span className="signal">·</span> {stamp.time} {stamp.tz}
+            </span>
+            <Link
+              to="/contact"
+              className="folio md:text-right hover:signal transition-colors"
+              aria-label="Deploy window open — go to contact"
+            >
+              <span className="pulse-square" />TIME TO RING. LET'S DEPLOY <span className="signal">↗</span>
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 md:gap-10 items-start">

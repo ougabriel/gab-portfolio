@@ -228,6 +228,22 @@ button {
   font-variant-numeric: tabular-nums;
 }
 
+/* Live status indicator — pulsing acid-lime square. Industrial LED. */
+@keyframes pulse-signal {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.28; }
+}
+.pulse-square {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--signal);
+  animation: pulse-signal 1.4s ease-in-out infinite;
+  vertical-align: middle;
+  margin-right: 0.6ch;
+  margin-top: -2px;
+}
+
 /* Prose container for narrative copy */
 .prose-mono {
   max-width: 64ch;
