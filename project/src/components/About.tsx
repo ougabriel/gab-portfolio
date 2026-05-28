@@ -28,6 +28,7 @@ const roles: Role[] = [
     bullets: [
       'NGINX Ingress on Kubernetes — load balancing and traffic mgmt, 99.99% uptime on critical apps.',
       '20+ Ansible playbooks and roles; deployment time cut ~30% with consistent environments.',
+      'Set up Ansible workstation + clients; YAML scripts driving software updates and upgrades fleet-wide.',
       'Prometheus + Grafana monitoring stack; proactive detection, 99.9% uptime.',
       'Terraform-driven IaC across environments; ~90% reduction in deployment errors.',
       'AKS deployments with HA, scaling and fault tolerance.',
@@ -77,14 +78,16 @@ const roles: Role[] = [
 ]
 
 const stack: [string, string][] = [
-  ['MLOps', 'MLflow, model registry, pipeline automation, artifact mgmt'],
-  ['ML Platform', 'Azure ML, Kubeflow, containerised inference'],
+  ['Versioning', 'Git'],
+  ['CI / CD', 'Jenkins, Azure DevOps, GitHub Actions'],
   ['Containers', 'Docker (multi-stage), Kubernetes (AKS, EKS)'],
-  ['CI/CD', 'Azure DevOps, GitHub Actions, Jenkins'],
-  ['IaC', 'Terraform, Helm, Ansible'],
-  ['Cloud', 'Azure, AWS'],
-  ['Monitoring', 'Azure Monitor, Prometheus, Grafana'],
-  ['Languages', 'Python, Bash, YAML'],
+  ['GitOps + Security', 'ArgoCD, Trivy, SonarQube, Nexus'],
+  ['Cloud', 'AWS, Azure'],
+  ['IaC + Config', 'Terraform, Helm, Ansible'],
+  ['Monitoring', 'ELK, Prometheus, Grafana'],
+  ['Scripting', 'Python, Bash, YAML'],
+  ['App layer', 'Apache Tomcat, MySQL'],
+  ['OS + Tracking', 'Ubuntu, CentOS, Windows, JIRA'],
 ]
 
 const About: React.FC = () => {
@@ -100,11 +103,12 @@ const About: React.FC = () => {
             About<span className="accent">.</span>
           </h1>
           <p className="prose-mono" style={{ marginTop: '1.5rem' }}>
-            MLOps engineer building automated, secure pipelines for machine-learning
-            workloads. At <em>KPMG</em>, I deliver model versioning, artifact management,
-            containerised inference, and reproducible build / test / deploy pipelines
-            on Kubernetes and Azure — with full observability tied back to centralised
-            logging.
+            Senior DevOps engineer with hands-on AI/MLOps experience. At
+            <em> KPMG</em>, I build enterprise-grade CI/CD on Azure DevOps and
+            GitHub Actions, architect Kubernetes-native infrastructure for
+            AI-driven audit and analytics workloads, and wire MLOps workflows —
+            model versioning, artifact management, environment parity — across
+            cloud subscriptions. Growth mindset, security-first delivery.
           </p>
         </div>
       </section>
