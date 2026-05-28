@@ -130,58 +130,102 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Portrait sidebar — last on mobile, right on desktop. Treated as a
-                documentary plate: hairline frame, acid-lime crop marks at each
-                corner (darkroom register marks), tabular caption strip below. */}
-            <figure className="md:col-span-5 lg:col-span-4 order-1 md:order-2 m-0 mb-8 md:mb-0">
+            {/* Portrait sidebar — last on mobile, right on desktop. Circular
+                byline treatment: concentric hairline rings (camera-reticle feel),
+                acid-lime tick marks at N/E/S/W on the outer ring, tabular caption
+                strip below. Still inside the Industrial register — no shadows,
+                no gradients, hairlines only. */}
+            <figure className="md:col-span-5 lg:col-span-4 order-1 md:order-2 m-0 mb-8 md:mb-0 flex flex-col items-center">
               <div
                 style={{
                   position: 'relative',
-                  border: '1px solid var(--rule)',
-                  background: 'var(--ink-800)',
-                  aspectRatio: '4 / 5',
-                  overflow: 'hidden',
+                  width: '100%',
+                  maxWidth: 320,
+                  aspectRatio: '1 / 1',
                 }}
               >
-                <img
-                  src="/portrait.jpg"
-                  alt="Gabriel Okom — portrait, London 2026"
-                  loading="eager"
-                  decoding="async"
+                {/* Outer ring — concentric hairline */}
+                <div
                   style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    objectPosition: 'center 18%',
-                    display: 'block',
-                    filter: 'contrast(1.03) saturate(0.92)',
-                  }}
-                  onError={(e) => {
-                    const t = e.target as HTMLImageElement
-                    if (!t.dataset.fallback) {
-                      t.dataset.fallback = '1'
-                      t.src = '/profile.jpg'
-                    }
+                    position: 'absolute',
+                    inset: 0,
+                    border: '1px solid var(--rule)',
+                    borderRadius: '50%',
                   }}
                 />
-                {/* Acid-lime register marks — four corners. Pure CSS, no SVG. */}
-                {(['tl', 'tr', 'bl', 'br'] as const).map((pos) => {
-                  const off = 8
-                  const len = 14
-                  const base = { position: 'absolute' as const, background: 'var(--signal)' }
-                  const v = (pos === 'tl' || pos === 'tr') ? { top: off } : { bottom: off }
-                  const h = (pos === 'tl' || pos === 'bl') ? { left: off } : { right: off }
-                  return (
-                    <span key={pos}>
-                      <span style={{ ...base, ...v, ...h, width: len, height: 1 }} />
-                      <span style={{ ...base, ...v, ...h, width: 1, height: len }} />
-                    </span>
-                  )
-                })}
+                {/* Photo circle — inset from outer ring */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 12,
+                    borderRadius: '50%',
+                    overflow: 'hidden',
+                    background: 'var(--ink-800)',
+                    border: '1px solid var(--rule)',
+                  }}
+                >
+                  <img
+                    src="/portrait.jpg"
+                    alt="Gabriel Okom — portrait, London 2026"
+                    loading="eager"
+                    decoding="async"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      objectPosition: 'center 22%',
+                      display: 'block',
+                      filter: 'contrast(1.03) saturate(0.92)',
+                    }}
+                    onError={(e) => {
+                      const t = e.target as HTMLImageElement
+                      if (!t.dataset.fallback) {
+                        t.dataset.fallback = '1'
+                        t.src = '/profile.jpg'
+                      }
+                    }}
+                  />
+                </div>
+
+                {/* Radial register marks at N/E/S/W on the outer ring */}
+                {([
+                  { side: 'top',    style: { top: -4, left: '50%', width: 1, height: 8, transform: 'translateX(-50%)' } },
+                  { side: 'right',  style: { top: '50%', right: -4, width: 8, height: 1, transform: 'translateY(-50%)' } },
+                  { side: 'bottom', style: { bottom: -4, left: '50%', width: 1, height: 8, transform: 'translateX(-50%)' } },
+                  { side: 'left',   style: { top: '50%', left: -4, width: 8, height: 1, transform: 'translateY(-50%)' } },
+                ] as const).map((m) => (
+                  <span
+                    key={m.side}
+                    style={{
+                      position: 'absolute',
+                      background: 'var(--signal)',
+                      ...m.style,
+                    }}
+                  />
+                ))}
+
+                {/* Tiny folio chip pinned bottom-right of the ring */}
+                <span
+                  className="folio"
+                  style={{
+                    position: 'absolute',
+                    bottom: -22,
+                    right: 0,
+                    fontSize: 10,
+                    letterSpacing: '0.22em',
+                  }}
+                >
+                  No. 00 / PORTRAIT
+                </span>
               </div>
+
               <figcaption
-                className="flex items-baseline justify-between"
-                style={{ paddingTop: '0.7rem', borderTop: '1px solid var(--rule)', marginTop: '0.5rem' }}
+                className="w-full flex items-baseline justify-between"
+                style={{
+                  paddingTop: '0.7rem',
+                  borderTop: '1px solid var(--rule)',
+                  marginTop: '2.5rem',
+                }}
               >
                 <span className="meta">
                   <span className="signal">◆</span> GABRIEL OKOM
