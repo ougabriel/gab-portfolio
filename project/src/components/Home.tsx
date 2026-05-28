@@ -94,36 +94,101 @@ const Home: React.FC = () => {
             <span className="folio hidden md:inline">{new Date().toISOString().slice(0, 10)}</span>
           </div>
 
-          <h1 className="display">
-            Notes from the<br />
-            <span className="accent">production</span> trenches<span className="caret"></span>
-          </h1>
+          <div className="grid grid-cols-1 md:grid-cols-12 md:gap-10 items-start">
+            {/* Text column — first on mobile, left on desktop */}
+            <div className="md:col-span-7 lg:col-span-8 order-2 md:order-1">
+              <h1 className="display">
+                Notes from the<br />
+                <span className="accent">production</span> trenches<span className="caret"></span>
+              </h1>
 
-          <p className="prose-mono" style={{ marginTop: '2rem' }}>
-            Gabriel Okom — senior DevOps and AI/MLOps engineer at <em>KPMG
-            (Microsoft Business Solutions)</em>. I align tooling with business
-            outcomes: enterprise-grade CI/CD on Azure DevOps and GitHub Actions,
-            Kubernetes-native infrastructure on Azure, and MLOps workflows wired
-            behind AI-driven audit and analytics workloads. This is the log:
-            long-form articles, recorded walkthroughs, and the field notes
-            behind them — written from real production work, not slideware.
-          </p>
+              <p className="prose-mono" style={{ marginTop: '2rem' }}>
+                Gabriel Okom — senior DevOps and AI/MLOps engineer at <em>KPMG
+                (Microsoft Business Solutions)</em>. I align tooling with business
+                outcomes: enterprise-grade CI/CD on Azure DevOps and GitHub Actions,
+                Kubernetes-native infrastructure on Azure, and MLOps workflows wired
+                behind AI-driven audit and analytics workloads. This is the log:
+                long-form articles, recorded walkthroughs, and the field notes
+                behind them — written from real production work, not slideware.
+              </p>
 
-          <div className="flex flex-wrap gap-3" style={{ marginTop: '2.5rem' }}>
-            <Link to="/articles" className="field-btn field-btn-solid">
-              READ LATEST DISPATCH →
-            </Link>
-            <Link to="/articles" className="field-btn">
-              ALL ARTICLES <span className="dim">/ {dispatches.length.toString().padStart(2, '0')}</span>
-            </Link>
-            <a
-              href="https://www.youtube.com/@GabrielOkom"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="field-btn"
-            >
-              VIDEO BLOG <span className="signal">↗</span>
-            </a>
+              <div className="flex flex-wrap gap-3" style={{ marginTop: '2.5rem' }}>
+                <Link to="/articles" className="field-btn field-btn-solid">
+                  READ LATEST DISPATCH →
+                </Link>
+                <Link to="/articles" className="field-btn">
+                  ALL ARTICLES <span className="dim">/ {dispatches.length.toString().padStart(2, '0')}</span>
+                </Link>
+                <a
+                  href="https://www.youtube.com/@GabrielOkom"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="field-btn"
+                >
+                  VIDEO BLOG <span className="signal">↗</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Portrait sidebar — last on mobile, right on desktop. Treated as a
+                documentary plate: hairline frame, acid-lime crop marks at each
+                corner (darkroom register marks), tabular caption strip below. */}
+            <figure className="md:col-span-5 lg:col-span-4 order-1 md:order-2 m-0 mb-8 md:mb-0">
+              <div
+                style={{
+                  position: 'relative',
+                  border: '1px solid var(--rule)',
+                  background: 'var(--ink-800)',
+                  aspectRatio: '4 / 5',
+                  overflow: 'hidden',
+                }}
+              >
+                <img
+                  src="/portrait.jpg"
+                  alt="Gabriel Okom — portrait, London 2026"
+                  loading="eager"
+                  decoding="async"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center 18%',
+                    display: 'block',
+                    filter: 'contrast(1.03) saturate(0.92)',
+                  }}
+                  onError={(e) => {
+                    const t = e.target as HTMLImageElement
+                    if (!t.dataset.fallback) {
+                      t.dataset.fallback = '1'
+                      t.src = '/profile.jpg'
+                    }
+                  }}
+                />
+                {/* Acid-lime register marks — four corners. Pure CSS, no SVG. */}
+                {(['tl', 'tr', 'bl', 'br'] as const).map((pos) => {
+                  const off = 8
+                  const len = 14
+                  const base = { position: 'absolute' as const, background: 'var(--signal)' }
+                  const v = (pos === 'tl' || pos === 'tr') ? { top: off } : { bottom: off }
+                  const h = (pos === 'tl' || pos === 'bl') ? { left: off } : { right: off }
+                  return (
+                    <span key={pos}>
+                      <span style={{ ...base, ...v, ...h, width: len, height: 1 }} />
+                      <span style={{ ...base, ...v, ...h, width: 1, height: len }} />
+                    </span>
+                  )
+                })}
+              </div>
+              <figcaption
+                className="flex items-baseline justify-between"
+                style={{ paddingTop: '0.7rem', borderTop: '1px solid var(--rule)', marginTop: '0.5rem' }}
+              >
+                <span className="meta">
+                  <span className="signal">◆</span> GABRIEL OKOM
+                </span>
+                <span className="meta">LONDON · 2026</span>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
