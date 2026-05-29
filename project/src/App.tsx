@@ -103,7 +103,7 @@ const Header: React.FC = () => {
       <div className="hairline-b">
         <div className="page flex items-center justify-between" style={{ height: 32 }}>
           <span className="meta">
-            AUDIT <span className="signal">+</span> ADVISORY CONSULTING
+            TECH <span className="signal">+</span> AUDIT <span className="signal">+</span> ADVISORY CONSULTING
           </span>
           <span className="meta hidden sm:inline">
             LONDON SE6 <span className="signal">/</span> UTC+0

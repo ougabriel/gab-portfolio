@@ -135,7 +135,7 @@ const Home: React.FC = () => {
 
               <p className="prose-mono" style={{ marginTop: '2rem' }}>
                 Gabriel Okom — senior DevOps and AI/MLOps engineer working
-                across <em>audit and advisory consulting</em>. I align tooling
+                across <em>tech, audit and advisory consulting</em>. I align tooling
                 with business outcomes: enterprise-grade CI/CD on Azure DevOps
                 and GitHub Actions, Kubernetes-native infrastructure on Azure,
                 and MLOps workflows wired behind AI-driven audit and analytics
