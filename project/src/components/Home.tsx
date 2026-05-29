@@ -134,13 +134,14 @@ const Home: React.FC = () => {
               </h1>
 
               <p className="prose-mono" style={{ marginTop: '2rem' }}>
-                Gabriel Okom — senior DevOps and AI/MLOps engineer at <em>KPMG
-                (Microsoft Business Solutions)</em>. I align tooling with business
-                outcomes: enterprise-grade CI/CD on Azure DevOps and GitHub Actions,
-                Kubernetes-native infrastructure on Azure, and MLOps workflows wired
-                behind AI-driven audit and analytics workloads. This is the log:
-                long-form articles, recorded walkthroughs, and the field notes
-                behind them — written from real production work, not slideware.
+                Gabriel Okom — senior DevOps and AI/MLOps engineer working
+                across <em>audit and advisory consulting</em>. I align tooling
+                with business outcomes: enterprise-grade CI/CD on Azure DevOps
+                and GitHub Actions, Kubernetes-native infrastructure on Azure,
+                and MLOps workflows wired behind AI-driven audit and analytics
+                workloads. This is the log: long-form articles, recorded
+                walkthroughs, and the field notes behind them — written from
+                real production work, not slideware.
               </p>
 
               <div className="flex flex-wrap gap-3" style={{ marginTop: '2.5rem' }}>
