@@ -12,6 +12,66 @@ type Article = {
 
 const articles: Article[] = [
   {
+    folio: 'No. 14',
+    date: '2026-05-31',
+    topic: 'MLOps / Platform',
+    read: '12 MIN',
+    title: 'An End-to-End MLOps Demo Repo, Terraform AKS, GitHub Actions, MLflow, KServe, and Drift Monitoring in One make up',
+    summary:
+      'Capstone of the MLOps series. Terraform provisions AKS, ACR, Postgres, Blob. Bootstrap installs MLflow, KServe, kube-prometheus-stack, ArgoCD. GitHub Actions trains and scans. KServe canaries. Drift sidecar pages. One make up brings it all up.',
+    href: 'https://ougabriel.medium.com/95b435ab24f3',
+  },
+  {
+    folio: 'No. 13',
+    date: '2026-05-31',
+    topic: 'MLOps / Observability',
+    read: '14 MIN',
+    title: 'Detecting Model Drift in Production, Evidently AI, Prometheus, Grafana, and AlertManager',
+    summary:
+      'Wrap a deployed ML model with a sidecar that computes Evidently drift metrics, scrape them with kube-prometheus-stack, visualise in Grafana, and page on sustained drift via AlertManager.',
+    href: 'https://ougabriel.medium.com/448329ff6cb8',
+  },
+  {
+    folio: 'No. 12',
+    date: '2026-05-31',
+    topic: 'KServe / AKS',
+    read: '13 MIN',
+    title: 'KServe on AKS, Canary Rollouts and Traffic Splitting for Model Versions',
+    summary:
+      'Install KServe on AKS, deploy a model as an InferenceService, roll out a new version at 10/50/100 percent using canaryTrafficPercent, and revert in a single kubectl patch when the canary misbehaves.',
+    href: 'https://ougabriel.medium.com/90744ed5c214',
+  },
+  {
+    folio: 'No. 11',
+    date: '2026-05-31',
+    topic: 'CI/CD / MLOps',
+    read: '16 MIN',
+    title: 'A GitHub Actions Pipeline for ML Model CI/CD, DVC, MLflow, Trivy, Bandit, and ArgoCD',
+    summary:
+      'End-to-end ML CI/CD on GitHub Actions. DVC for data versioning, MLflow registry for models, Bandit + Trivy as security gates, ArgoCD for the rollout. Repo split into model code and GitOps manifests.',
+    href: 'https://ougabriel.medium.com/624cceaf4396',
+  },
+  {
+    folio: 'No. 10',
+    date: '2026-05-31',
+    topic: 'MLflow / Azure',
+    read: '14 MIN',
+    title: 'MLflow + Azure ML Model Registry on AKS, With Promotion Gates in Azure DevOps',
+    summary:
+      'Stand up a self-hosted MLflow tracking + model registry on AKS, point it at Postgres and Blob, then promote Staging to Production through an Azure DevOps pipeline with a human approval gate.',
+    href: 'https://ougabriel.medium.com/5fe064afdee1',
+  },
+  {
+    folio: 'No. 09',
+    date: '2026-05-31',
+    topic: 'LLM / AKS',
+    read: '12 MIN',
+    title: 'Containerised LLM Inference on AKS, OLLAMA, Multi-stage Docker, and an HPA Tuned for Cold-Start',
+    summary:
+      'Take the OLLAMA + DeepSeek setup from the earlier post and turn it into a proper inference service on AKS. Multi-stage Docker, ClusterIP and Ingress, plus an HPA tuned so the first request after a quiet period does not time out.',
+    href: 'https://ougabriel.medium.com/09a9912ed209',
+  },
+  {
     folio: 'No. 08',
     date: '2025-01-29',
     topic: 'AI / Azure',
