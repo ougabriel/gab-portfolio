@@ -23,7 +23,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 35',
-    date: '2026-06-02',
+    date: '2026-05-30',
     topic: 'Container Apps · KEDA',
     read: '13 MIN',
     title: 'AZURE PROJECT: Container Apps platform with KEDA scaling, revision-based blue/green deploys, and Dapr',
@@ -33,7 +33,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 34',
-    date: '2026-06-02',
+    date: '2026-05-28',
     topic: 'IoT · Streaming',
     read: '14 MIN',
     title: 'AZURE PROJECT: Real-time IoT analytics platform with Event Hubs, Stream Analytics, Cosmos DB, and Power BI',
@@ -43,7 +43,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 33',
-    date: '2026-06-02',
+    date: '2026-05-24',
     topic: 'Databricks · ADF',
     read: '15 MIN',
     title: 'AZURE PROJECT: Enterprise data platform with Databricks Asset Bundles, ADF as code, and Unity Catalog',
@@ -53,7 +53,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 32',
-    date: '2026-06-02',
+    date: '2026-05-19',
     topic: 'DR · BCDR',
     read: '14 MIN',
     title: 'AZURE PROJECT: Disaster recovery automation with Azure Site Recovery, Recovery Services Vault, and runbook orchestration',
@@ -63,7 +63,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 31',
-    date: '2026-06-02',
+    date: '2026-05-15',
     topic: 'APIM',
     read: '15 MIN',
     title: 'AZURE PROJECT: Azure API Management as code with versions, revisions, named values, and policy testing',
@@ -73,7 +73,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 30',
-    date: '2026-06-02',
+    date: '2026-05-09',
     topic: 'Backstage · IDP',
     read: '14 MIN',
     title: 'AZURE PROJECT: Internal developer platform with Backstage on AKS, scaffolder templates auto-provisioning Azure DevOps repos and AKS namespaces',
@@ -83,7 +83,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 29',
-    date: '2026-06-02',
+    date: '2026-05-04',
     topic: 'HIPAA · Data',
     read: '15 MIN',
     title: 'AZURE PROJECT: HIPAA-bound healthcare data platform on Synapse, Purview, and Defender for Cloud',
@@ -93,7 +93,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 28',
-    date: '2026-06-02',
+    date: '2026-04-29',
     topic: 'Multi-region · AKS',
     read: '14 MIN',
     title: 'AZURE PROJECT: Multi-region active-active web app on AKS with Front Door, Cosmos DB multi-write, and automated failover',
@@ -103,7 +103,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 27',
-    date: '2026-06-02',
+    date: '2026-04-22',
     topic: 'Microservices · AKS',
     read: '15 MIN',
     title: 'CICD PROJECT: Production-grade microservices e-commerce on AKS with Azure DevOps, Helm, ArgoCD, and Key Vault',
@@ -113,7 +113,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 26',
-    date: '2026-06-02',
+    date: '2026-04-15',
     topic: 'Azure DevOps',
     read: '15 MIN',
     title: 'Azure Pipelines vs GitHub Actions: how to choose, and how to bridge them',
@@ -123,7 +123,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 25',
-    date: '2026-06-02',
+    date: '2026-04-08',
     topic: 'Azure DevOps',
     read: '14 MIN',
     title: 'Migrating Azure DevOps classic release pipelines to multi-stage YAML',
@@ -133,7 +133,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 24',
-    date: '2026-06-02',
+    date: '2026-03-31',
     topic: 'Azure DevOps · Observability',
     read: '15 MIN',
     title: 'Pipeline observability: log analytics for Azure DevOps + Azure Monitor for the apps you ship',
@@ -143,7 +143,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 23',
-    date: '2026-06-02',
+    date: '2026-03-22',
     topic: 'GitOps · AKS',
     read: '14 MIN',
     title: 'GitOps on AKS with Argo CD and Flux: when to pick which, and how to wire either to Azure DevOps',
@@ -153,7 +153,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 22',
-    date: '2026-06-02',
+    date: '2026-03-12',
     topic: 'Container CI/CD · AKS',
     read: '13 MIN',
     title: 'Container CI/CD from Azure DevOps to ACR and AKS',
@@ -163,7 +163,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 21',
-    date: '2026-06-02',
+    date: '2026-03-02',
     topic: 'Azure DevOps · Security',
     read: '13 MIN',
     title: 'Secret management for Azure DevOps pipelines with Key Vault and variable groups',
@@ -173,7 +173,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 20',
-    date: '2026-06-02',
+    date: '2026-02-21',
     topic: 'Azure DevOps · Quality',
     read: '16 MIN',
     title: 'Quality gates in Azure DevOps pipelines: SonarQube, code coverage, security scans',
@@ -183,7 +183,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 19',
-    date: '2026-06-02',
+    date: '2026-02-11',
     topic: 'Azure DevOps · Agents',
     read: '12 MIN',
     title: 'Azure DevOps agent pools: Microsoft-hosted vs self-hosted, scaling, isolation, Linux vs Windows',
@@ -193,7 +193,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 18',
-    date: '2026-06-02',
+    date: '2026-02-04',
     topic: 'Terraform · Azure',
     read: '14 MIN',
     title: 'Terraform on Azure DevOps with OIDC auth and remote state in a storage account',
@@ -203,7 +203,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 17',
-    date: '2026-06-02',
+    date: '2026-01-28',
     topic: 'Bicep · Azure',
     read: '13 MIN',
     title: 'Bicep CI/CD on Azure DevOps with what-if and approvals',
@@ -213,7 +213,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 16',
-    date: '2026-06-02',
+    date: '2026-01-21',
     topic: 'Azure DevOps · Identity',
     read: '14 MIN',
     title: 'Secretless deployments from Azure DevOps with Workload Identity Federation',
@@ -223,7 +223,7 @@ const articles: Article[] = [
   },
   {
     folio: 'No. 15',
-    date: '2026-06-02',
+    date: '2026-01-15',
     topic: 'Azure DevOps · YAML',
     read: '14 MIN',
     title: 'Multi-stage YAML pipelines in Azure DevOps: stages, jobs, deployments, environments, and approvals',

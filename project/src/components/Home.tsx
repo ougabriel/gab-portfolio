@@ -34,7 +34,7 @@ const dispatches: Dispatch[] = [
   },
   {
     folio: 'No. 33',
-    date: '2026-06-02',
+    date: '2026-05-24',
     topic: 'Databricks · ADF',
     read: '15 MIN',
     title: 'AZURE PROJECT: Enterprise data platform with Databricks Asset Bundles, ADF as code, and Unity Catalog',
@@ -42,7 +42,7 @@ const dispatches: Dispatch[] = [
   },
   {
     folio: 'No. 31',
-    date: '2026-06-02',
+    date: '2026-05-15',
     topic: 'APIM',
     read: '15 MIN',
     title: 'AZURE PROJECT: Azure API Management as code with versions, revisions, named values, and policy testing',
@@ -50,7 +50,7 @@ const dispatches: Dispatch[] = [
   },
   {
     folio: 'No. 30',
-    date: '2026-06-02',
+    date: '2026-05-09',
     topic: 'Backstage · IDP',
     read: '14 MIN',
     title: 'AZURE PROJECT: Internal developer platform with Backstage on AKS, scaffolder templates auto-provisioning repos',
@@ -58,7 +58,7 @@ const dispatches: Dispatch[] = [
   },
   {
     folio: 'No. 28',
-    date: '2026-06-02',
+    date: '2026-04-29',
     topic: 'Multi-region · AKS',
     read: '14 MIN',
     title: 'AZURE PROJECT: Multi-region active-active web app on AKS with Front Door and Cosmos DB multi-write',
@@ -66,7 +66,7 @@ const dispatches: Dispatch[] = [
   },
   {
     folio: 'No. 27',
-    date: '2026-06-02',
+    date: '2026-04-22',
     topic: 'Microservices · AKS',
     read: '15 MIN',
     title: 'CICD PROJECT: Production-grade microservices e-commerce on AKS with Azure DevOps, Helm, ArgoCD, and Key Vault',
