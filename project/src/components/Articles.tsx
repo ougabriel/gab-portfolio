@@ -12,6 +12,106 @@ type Article = {
 
 const articles: Article[] = [
   {
+    folio: 'No. 36',
+    date: '2026-06-02',
+    topic: 'Azure · Landing Zone',
+    read: '14 MIN',
+    title: 'AZURE PROJECT: Enterprise landing zone with the Cloud Adoption Framework, Azure Verified Modules, and management groups',
+    summary:
+      'Management-group hierarchy (Platform / Landing Zones / Sandbox / Decommissioned), AVM Bicep modules for hub-and-spoke + Firewall + Bastion + Sentinel + Purview, policies and initiatives at MG scope, subscription vending pattern. Real repo layout, tag taxonomy, cost-center allocation.',
+    href: 'https://ougabriel.medium.com/2bd8f26e034b',
+  },
+  {
+    folio: 'No. 35',
+    date: '2026-06-02',
+    topic: 'Container Apps · KEDA',
+    read: '13 MIN',
+    title: 'AZURE PROJECT: Container Apps platform with KEDA scaling, revision-based blue/green deploys, and Dapr',
+    summary:
+      'Container Apps environment in a VNet, KEDA scaling on HTTP concurrency / Service Bus / Prometheus, blue/green via revisions and traffic splits, Dapr pub/sub via Service Bus and state via Cosmos. When Container Apps wins over AKS, when it does not.',
+    href: 'https://ougabriel.medium.com/30cbeaa0a2df',
+  },
+  {
+    folio: 'No. 34',
+    date: '2026-06-02',
+    topic: 'IoT · Streaming',
+    read: '14 MIN',
+    title: 'AZURE PROJECT: Real-time IoT analytics platform with Event Hubs, Stream Analytics, Cosmos DB, and Power BI',
+    summary:
+      'Industrial telemetry through IoT Hub to Event Hubs, Stream Analytics SQL with TUMBLINGWINDOW and anomaly detection, results into Cosmos DB and a Power BI streaming dataset. Throughput-unit planning, partition-key choice, anomaly alerting via Azure Monitor.',
+    href: 'https://ougabriel.medium.com/d5c4acfb3259',
+  },
+  {
+    folio: 'No. 33',
+    date: '2026-06-02',
+    topic: 'Databricks · ADF',
+    read: '15 MIN',
+    title: 'AZURE PROJECT: Enterprise data platform with Databricks Asset Bundles, ADF as code, and Unity Catalog',
+    summary:
+      'Databricks workspace with Unity Catalog three-level namespace, DAB for CI/CD of notebooks and jobs, ADF as code, end-to-end Azure DevOps pipeline that validates and deploys to dev, runs integration jobs, promotes to prod with approval. Lineage, audit, cluster cost notes.',
+    href: 'https://ougabriel.medium.com/5a70f9dac079',
+  },
+  {
+    folio: 'No. 32',
+    date: '2026-06-02',
+    topic: 'DR · BCDR',
+    read: '14 MIN',
+    title: 'AZURE PROJECT: Disaster recovery automation with Azure Site Recovery, Recovery Services Vault, and runbook orchestration',
+    summary:
+      'Recovery Services Vault with cross-region replication, ASR for IaaS VMs, Velero for AKS, SQL failover groups, Cosmos periodic backup, Automation Account runbooks driven by Azure DevOps. Real induced-failover walkthrough, RPO/RTO measurement, identity/DNS/cert gotchas.',
+    href: 'https://ougabriel.medium.com/c96851a7c466',
+  },
+  {
+    folio: 'No. 31',
+    date: '2026-06-02',
+    topic: 'APIM',
+    read: '15 MIN',
+    title: 'AZURE PROJECT: Azure API Management as code with versions, revisions, named values, and policy testing',
+    summary:
+      'APIM Premium in an internal VNet, extractor/creator round-trip, OAS lint and newman tests in a multi-stage pipeline, real policy XML (rate-limit / JWT / CORS / backend pool), versioning + revisions with traffic split. When Standard tier is enough.',
+    href: 'https://ougabriel.medium.com/d10ff4b4f57d',
+  },
+  {
+    folio: 'No. 30',
+    date: '2026-06-02',
+    topic: 'Backstage · IDP',
+    read: '14 MIN',
+    title: 'AZURE PROJECT: Internal developer platform with Backstage on AKS, scaffolder templates auto-provisioning Azure DevOps repos and AKS namespaces',
+    summary:
+      'Backstage on AKS with PostgreSQL backing, Entra ID SSO, catalog plugin scanning Azure DevOps and AKS, scaffolder templates that create repos + Helm charts + ArgoCD apps + Application Insights wiring. Adoption gotchas and platform-engineering notes.',
+    href: 'https://ougabriel.medium.com/d33a984d8b44',
+  },
+  {
+    folio: 'No. 29',
+    date: '2026-06-02',
+    topic: 'HIPAA · Data',
+    read: '15 MIN',
+    title: 'AZURE PROJECT: HIPAA-bound healthcare data platform on Synapse, Purview, and Defender for Cloud',
+    summary:
+      'Synapse dedicated SQL pool + Spark pool, Purview catalog auto-classifying PHI, private endpoints, customer-managed HSM keys, Defender for Cloud HIPAA HITRUST compliance dashboard. Real Spark notebook masking SSNs before downstream consumers see them.',
+    href: 'https://ougabriel.medium.com/175b1d5cbce8',
+  },
+  {
+    folio: 'No. 28',
+    date: '2026-06-02',
+    topic: 'Multi-region · AKS',
+    read: '14 MIN',
+    title: 'AZURE PROJECT: Multi-region active-active web app on AKS with Front Door, Cosmos DB multi-write, and automated failover',
+    summary:
+      'Two AKS clusters in paired regions, Cosmos DB multi-region writes with automatic conflict resolution, Front Door Premium with WAF and global anycast, ACR geo-replication. Real induced-failure test by draining a region, cost considerations, DNS TTLs.',
+    href: 'https://ougabriel.medium.com/2d7e62ece9cb',
+  },
+  {
+    folio: 'No. 27',
+    date: '2026-06-02',
+    topic: 'Microservices · AKS',
+    read: '15 MIN',
+    title: 'CICD PROJECT: Production-grade microservices e-commerce on AKS with Azure DevOps, Helm, ArgoCD, and Key Vault',
+    summary:
+      'Three microservices (catalog Python, cart Node.js, checkout Java Spring), one repo per service plus a manifest GitOps repo. Docker build to ACR, Helm chart push to OCI registry, ArgoCD App-of-Apps sync. NGINX Ingress behind Application Gateway, Cosmos / Redis / Azure SQL, secrets via Key Vault CSI.',
+    href: 'https://ougabriel.medium.com/dce335374715',
+  },
+  {
     folio: 'No. 26',
     date: '2026-06-02',
     topic: 'Azure DevOps',
