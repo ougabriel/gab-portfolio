@@ -12,6 +12,126 @@ type Article = {
 
 const articles: Article[] = [
   {
+    folio: 'No. 26',
+    date: '2026-06-02',
+    topic: 'Azure DevOps',
+    read: '15 MIN',
+    title: 'Azure Pipelines vs GitHub Actions: how to choose, and how to bridge them',
+    summary:
+      'When Azure Pipelines still wins (deep boards integration, agent-pool isolation, strong release/approval model). When GitHub Actions wins (repo-native, marketplace, cleaner DX). Side-by-side on triggers, secrets, OIDC, artifacts. A hybrid pattern for orgs that want both.',
+    href: 'https://ougabriel.medium.com/39e91328ba84',
+  },
+  {
+    folio: 'No. 25',
+    date: '2026-06-02',
+    topic: 'Azure DevOps',
+    read: '14 MIN',
+    title: 'Migrating Azure DevOps classic release pipelines to multi-stage YAML',
+    summary:
+      'Mapping classic concepts to YAML: stages, environments, approval gates, variable groups. Phased migration: stand up YAML side-by-side, parity-test, cut over. Gotchas around variable scoping, deployment groups, and retention. A real migrated example.',
+    href: 'https://ougabriel.medium.com/f990b62b6aae',
+  },
+  {
+    folio: 'No. 24',
+    date: '2026-06-02',
+    topic: 'Azure DevOps · Observability',
+    read: '15 MIN',
+    title: 'Pipeline observability: log analytics for Azure DevOps + Azure Monitor for the apps you ship',
+    summary:
+      'Two observability layers: pipeline-side (streaming logs, failed-run analytics) and app-side (Azure Monitor + Container Insights for AKS workloads). Application Insights for code traces. Alert rules that fire on failed deployments.',
+    href: 'https://ougabriel.medium.com/f489a54475a2',
+  },
+  {
+    folio: 'No. 23',
+    date: '2026-06-02',
+    topic: 'GitOps · AKS',
+    read: '14 MIN',
+    title: 'GitOps on AKS with Argo CD and Flux: when to pick which, and how to wire either to Azure DevOps',
+    summary:
+      'GitOps loop, repo split, Argo CD install on AKS or via the Azure Arc Flux extension. App-of-apps pattern. Tying Azure Pipelines to GitOps so pipelines update manifest repo and the controller deploys. Argo vs Flux comparison.',
+    href: 'https://ougabriel.medium.com/6501561dac18',
+  },
+  {
+    folio: 'No. 22',
+    date: '2026-06-02',
+    topic: 'Container CI/CD · AKS',
+    read: '13 MIN',
+    title: 'Container CI/CD from Azure DevOps to ACR and AKS',
+    summary:
+      'Docker@2 build, push to ACR via service connection, Trivy scan before push, deploy to AKS via KubernetesManifest@1 or Helm. Managed-identity pull from ACR. Rollback strategy with the deployment task.',
+    href: 'https://ougabriel.medium.com/58b3ed496f70',
+  },
+  {
+    folio: 'No. 21',
+    date: '2026-06-02',
+    topic: 'Azure DevOps · Security',
+    read: '13 MIN',
+    title: 'Secret management for Azure DevOps pipelines with Key Vault and variable groups',
+    summary:
+      'Three options ranked: pipeline secret variables (last resort), variable groups linked to Key Vault, Key Vault tasks reading at run time. Key Vault access policies, masking, audit, rotation strategy.',
+    href: 'https://ougabriel.medium.com/0756b952c3ad',
+  },
+  {
+    folio: 'No. 20',
+    date: '2026-06-02',
+    topic: 'Azure DevOps · Quality',
+    read: '16 MIN',
+    title: 'Quality gates in Azure DevOps pipelines: SonarQube, code coverage, security scans',
+    summary:
+      'Static analysis with SonarQube/SonarCloud, code coverage publishing with thresholds, container image scanning with Trivy, dependency scans. Failing the pipeline on regressions. Branch policies tied to required gates.',
+    href: 'https://ougabriel.medium.com/ed976d0cefdb',
+  },
+  {
+    folio: 'No. 19',
+    date: '2026-06-02',
+    topic: 'Azure DevOps · Agents',
+    read: '12 MIN',
+    title: 'Azure DevOps agent pools: Microsoft-hosted vs self-hosted, scaling, isolation, Linux vs Windows',
+    summary:
+      'Microsoft-hosted cost and image catalogue. When self-hosted is needed (private network, GPU, custom toolchain). Setup of a self-hosted Linux agent on an Azure VM, capabilities + demands, security, scaling, parallel-jobs licensing.',
+    href: 'https://ougabriel.medium.com/d36d4c902311',
+  },
+  {
+    folio: 'No. 18',
+    date: '2026-06-02',
+    topic: 'Terraform · Azure',
+    read: '14 MIN',
+    title: 'Terraform on Azure DevOps with OIDC auth and remote state in a storage account',
+    summary:
+      'azurerm backend (storage account + container, blob-lease state-locking). OIDC auth via the Azure DevOps service connection, no SP secret. Pipeline: init / validate / plan as artifact / apply behind approval. Workspaces and drift handling.',
+    href: 'https://ougabriel.medium.com/1beaee2d5f79',
+  },
+  {
+    folio: 'No. 17',
+    date: '2026-06-02',
+    topic: 'Bicep · Azure',
+    read: '13 MIN',
+    title: 'Bicep CI/CD on Azure DevOps with what-if and approvals',
+    summary:
+      'Bicep file layout, lint in CI, what-if as the safety gate, YAML pipeline shape: lint > what-if > deploy with manual approval. Tagging and naming conventions. State considerations vs Terraform (none, ARM is the state).',
+    href: 'https://ougabriel.medium.com/2fc1345a8ee8',
+  },
+  {
+    folio: 'No. 16',
+    date: '2026-06-02',
+    topic: 'Azure DevOps · Identity',
+    read: '14 MIN',
+    title: 'Secretless deployments from Azure DevOps with Workload Identity Federation',
+    summary:
+      'Problem with long-lived SP secrets. WIF concept (federated credentials, OIDC exchange, trust scope). Set up an Azure RM service connection with WIF. Pipeline YAML with AzureCLI@2. Common pitfalls (subscription scope, federated subject mismatch).',
+    href: 'https://ougabriel.medium.com/1dfbcf8cb9bf',
+  },
+  {
+    folio: 'No. 15',
+    date: '2026-06-02',
+    topic: 'Azure DevOps · YAML',
+    read: '14 MIN',
+    title: 'Multi-stage YAML pipelines in Azure DevOps: stages, jobs, deployments, environments, and approvals',
+    summary:
+      'Stage / job / step model. Deployment jobs and strategies (runOnce, rolling, canary). Environments + approvals. dependsOn and conditional stages. Variables across stages. A real two-stage build-then-deploy YAML.',
+    href: 'https://ougabriel.medium.com/57ccf68812c9',
+  },
+  {
     folio: 'No. 14',
     date: '2026-05-31',
     topic: 'MLOps / Platform',
