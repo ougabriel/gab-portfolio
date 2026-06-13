@@ -12,6 +12,116 @@ type Article = {
 
 const articles: Article[] = [
   {
+    folio: 'No. 47',
+    date: '2026-07-10',
+    topic: 'Azure AI · Observability',
+    read: '11 MIN',
+    title: 'AZURE AI: Application monitoring for AI apps with Azure Monitor, App Insights, and OpenTelemetry traces',
+    summary:
+      'App Insights wiring for Python LLM apps via opentelemetry-instrumentation-openai, distributed traces across the frontend / API / orchestrator / LLM / vector-store call graph, latency budgets at p50/p95/p99, token-cost custom metrics, alerts on cost spikes, Kusto queries for the slowest prompts.',
+    href: 'https://ougabriel.medium.com/faca6518553b',
+  },
+  {
+    folio: 'No. 46',
+    date: '2026-07-07',
+    topic: 'Azure AI · Evaluation',
+    read: '12 MIN',
+    title: 'AZURE AI: Automated evaluation with cloud evaluators in Azure AI Foundry',
+    summary:
+      'Built-in Azure AI evaluators (Groundedness, Relevance, Coherence, Fluency, Similarity), batch evaluation runs with the SDK, custom Python evaluators, jsonl eval datasets, gating deployments on threshold breaches, and feeding eval results to App Insights for dashboards and alerts.',
+    href: 'https://ougabriel.medium.com/3671d92a2fc8',
+  },
+  {
+    folio: 'No. 45',
+    date: '2026-07-04',
+    topic: 'Azure AI · Prompts + RAG',
+    read: '12 MIN',
+    title: 'AZURE AI: Designing and optimising prompts in Azure AI Foundry with variant A/B testing and grounded retrieval',
+    summary:
+      'Zero-shot vs few-shot patterns, system-prompt structure, chain-of-thought scaffolding, A/B testing variants in Prompt Flow, grounding with Azure AI Search (vector + hybrid), reducing hallucination through retrieved-context constraints.',
+    href: 'https://ougabriel.medium.com/283390ae548e',
+  },
+  {
+    folio: 'No. 44',
+    date: '2026-07-01',
+    topic: 'Azure AI · Prompt Flow',
+    read: '12 MIN',
+    title: 'AZURE AI: Prompt and agent versioning in Azure AI Foundry with Prompt Flow',
+    summary:
+      'Flow yaml structure, agent variants, registering flow versions, rolling back to a previous version, comparing variants in Studio, treating prompts as code with PR review, tagged versions, and no in-place edits in production.',
+    href: 'https://ougabriel.medium.com/68a091dc5f15',
+  },
+  {
+    folio: 'No. 43',
+    date: '2026-06-29',
+    topic: 'Azure AI · Foundry Infra',
+    read: '13 MIN',
+    title: 'AZURE AI: Azure AI Foundry infrastructure setup, hub, project, connections, compute, and Key Vault wiring',
+    summary:
+      'Hub creation, project creation, connections (Azure OpenAI, AI Search, Storage, Cosmos), compute (serverless + standard), Key Vault wiring for shared secrets, UAMI vs system-assigned identity model, and the resource-group layout that lets multiple teams share a hub safely.',
+    href: 'https://ougabriel.medium.com/b4e6e636fd32',
+  },
+  {
+    folio: 'No. 42',
+    date: '2026-06-26',
+    topic: 'Azure ML · Endpoints',
+    read: '11 MIN',
+    title: 'AZURE ML: Deploy and monitor a model in Azure ML with managed online endpoints, blue/green rollout, and drift detection',
+    summary:
+      'Online endpoint + deployment yaml, traffic split, scoring scripts, inference environment, autoscale rules, App Insights wiring, data drift detection via the data collector, and feeding drift signals back into retraining.',
+    href: 'https://ougabriel.medium.com/85fd2cbdfd2d',
+  },
+  {
+    folio: 'No. 41',
+    date: '2026-06-24',
+    topic: 'Azure ML · CI/CD',
+    read: '12 MIN',
+    title: 'AZURE ML: Automate ML training with GitHub Actions, Azure OIDC federation, and ML CLI v2',
+    summary:
+      'GitHub Actions workflow that retrains on PR merge using Azure OIDC federation (no service-principal secrets), azure/login@v2, az ml job create from the runner, environment management, branch-based triggers, pipeline params via workflow inputs, and gating on metric thresholds before registering.',
+    href: 'https://ougabriel.medium.com/bf7f424b2aef',
+  },
+  {
+    folio: 'No. 40',
+    date: '2026-06-22',
+    topic: 'Azure ML · Pipelines',
+    read: '12 MIN',
+    title: 'AZURE ML: Production ML pipelines in Azure ML with component-based composition and scheduled retraining',
+    summary:
+      'Component-based pipeline (prep, train, evaluate, register), yaml component definitions, pipeline yaml composition, uri_folder + mltable I/O, pipeline parameters, recurring scheduled triggers, pipeline endpoints, and reusing components across pipelines.',
+    href: 'https://ougabriel.medium.com/ac15e5f521f6',
+  },
+  {
+    folio: 'No. 39',
+    date: '2026-06-19',
+    topic: 'Azure ML · Sweep Jobs',
+    read: '11 MIN',
+    title: 'AZURE ML: Hyperparameter tuning with Azure ML sweep jobs, grid + random + Bayesian sampling, and Bandit early termination',
+    summary:
+      'Sweep job sampling strategies, search-space definition with choice/uniform/quniform, early termination policies (Bandit, MedianStopping, TruncationSelection), primary metric goal, and analysing sweep results in MLflow + the Studio UI.',
+    href: 'https://ougabriel.medium.com/bb9f06bc0ca0',
+  },
+  {
+    folio: 'No. 38',
+    date: '2026-06-17',
+    topic: 'Azure ML · Training',
+    read: '11 MIN',
+    title: 'AZURE ML: Optimise model training in Azure ML with command jobs, MLflow autolog, and compute target selection',
+    summary:
+      'Move from notebook training to scripted training using Command jobs, custom training scripts, MLflow autolog, parameterisation, choosing compute targets (Standard_DS3_v2 vs Standard_NC6s_v3), environment management with conda yaml, and submitting jobs via az ml job create.',
+    href: 'https://ougabriel.medium.com/b49768e4f0a2',
+  },
+  {
+    folio: 'No. 37',
+    date: '2026-06-15',
+    topic: 'Azure ML · AutoML',
+    read: '10 MIN',
+    title: 'AZURE ML: Find the best classification model with Azure ML AutoML using MLflow tracking and the best-model bundle',
+    summary:
+      'Diabetes prediction with Azure ML AutoML, workspace setup, dataset registration as MLTable, AutoML classification job submission via cli v2, MLflow tracking, retrieving best model artefacts, and downloading the bundled model for downstream use.',
+    href: 'https://ougabriel.medium.com/fbafa5596382',
+  },
+  {
     folio: 'No. 36',
     date: '2026-06-02',
     topic: 'Azure · Landing Zone',

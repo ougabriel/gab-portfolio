@@ -25,6 +25,46 @@ type Dispatch = {
 
 const dispatches: Dispatch[] = [
   {
+    folio: 'No. 47',
+    date: '2026-07-10',
+    topic: 'Azure AI · Observability',
+    read: '11 MIN',
+    title: 'AZURE AI: Application monitoring for AI apps with Azure Monitor, App Insights, and OpenTelemetry',
+    href: 'https://ougabriel.medium.com/faca6518553b',
+  },
+  {
+    folio: 'No. 45',
+    date: '2026-07-04',
+    topic: 'Azure AI · Prompts + RAG',
+    read: '12 MIN',
+    title: 'AZURE AI: Designing and optimising prompts in Azure AI Foundry with variant A/B testing and grounded retrieval',
+    href: 'https://ougabriel.medium.com/283390ae548e',
+  },
+  {
+    folio: 'No. 43',
+    date: '2026-06-29',
+    topic: 'Azure AI · Foundry Infra',
+    read: '13 MIN',
+    title: 'AZURE AI: Azure AI Foundry infrastructure setup, hub, project, connections, compute, and Key Vault wiring',
+    href: 'https://ougabriel.medium.com/b4e6e636fd32',
+  },
+  {
+    folio: 'No. 41',
+    date: '2026-06-24',
+    topic: 'Azure ML · CI/CD',
+    read: '12 MIN',
+    title: 'AZURE ML: Automate ML training with GitHub Actions, Azure OIDC federation, and ML CLI v2',
+    href: 'https://ougabriel.medium.com/bf7f424b2aef',
+  },
+  {
+    folio: 'No. 37',
+    date: '2026-06-15',
+    topic: 'Azure ML · AutoML',
+    read: '10 MIN',
+    title: 'AZURE ML: Find the best classification model with Azure ML AutoML using MLflow tracking',
+    href: 'https://ougabriel.medium.com/fbafa5596382',
+  },
+  {
     folio: 'No. 36',
     date: '2026-06-02',
     topic: 'Azure · Landing Zone',
