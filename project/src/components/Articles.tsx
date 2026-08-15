@@ -12,6 +12,17 @@ type Article = {
 
 const articles: Article[] = [
   {
+    folio: 'No. 48',
+    date: '2026-08-15',
+    topic: 'Azure AI · Multi-agent',
+    read: '13 MIN',
+    title:
+      'AZURE AI: Multi-agent claims triage on Microsoft Foundry with Agent Framework 1.0',
+    summary:
+      'Microsoft Agent Framework 1.0 (the GA successor to Semantic Kernel and AutoGen) driving a four-agent claims triage service on Microsoft Foundry: HandoffBuilder routing from a gpt-4o coordinator to three gpt-4o-mini specialists, specialist-to-specialist escalation, autonomous interaction mode with turn limits, Cosmos-backed checkpointing keyed on claim id, and OpenTelemetry traces under the gen_ai semantic conventions landing in Application Insights.',
+    href: 'https://ougabriel.medium.com/8bd22f8db6ed',
+  },
+  {
     folio: 'No. 47',
     date: '2026-07-10',
     topic: 'Azure AI · Observability',
